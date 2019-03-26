@@ -1,0 +1,40 @@
+import tensorflow as tf
+import numpy as np
+
+print(tf.__version__)
+
+###################
+
+a = np.array([5, 3, 8])
+b = np.array([3, -1, 2])
+c = np.add(a, b)
+print(c)
+
+###################
+
+a = tf.constant([5, 3, 8])
+b = tf.constant([3, -1, 2])
+c = tf.add(a, b)
+print(c)
+
+###################
+
+with tf.Session() as sess:
+  result = sess.run(c)
+  print(result)
+  
+  #################
+  
+  a = tf.placeholder(dtype=tf.int32, shape=(None,))  # batchsize x scalar
+b = tf.placeholder(dtype=tf.int32, shape=(None,))
+c = tf.add(a, b)
+with tf.Session() as sess:
+  result = sess.run(c, feed_dict={
+      a: [3, 4, 5],
+      b: [-1, 2, 3]
+    })
+  print(result)
+  
+  #################
+  
+  
