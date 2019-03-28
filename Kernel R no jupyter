@@ -1,0 +1,8 @@
+A partir do Anaconda Prompt, entrar como administrador
+
+rodar:
+> install.packages(“devtools”)
+
+> devtools::install_github(“IRkernel/IRkernel”)
+
+> IRkernel::installspec()
