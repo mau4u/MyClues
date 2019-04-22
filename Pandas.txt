@@ -1,18 +1,21 @@
 s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
 
+df.isnull().sum()
 
-#Criando um dicionário onde cada chave será uma coluna do DataFrame 
+
+
+#Criando um dicionÃ¡rio onde cada chave serÃ¡ uma coluna do DataFrame 
 
 data = {
-'País': ['Bélgica', 'Índia', 'Brasil'],
-'Capital': ['Bruxelas', 'Nova Delhi', 'Brasília'],
-'População': [123465, 456789, 987654]
+'PaÃ­s': ['BÃ©lgica', 'Ãndia', 'Brasil'],
+'Capital': ['Bruxelas', 'Nova Delhi', 'BrasÃ­lia'],
+'PopulaÃ§Ã£o': [123465, 456789, 987654]
 }
 
 
 
 #Criando o DataFrame
->>> df = pd.DataFrame(data, columns=['País','Capital','População'])
+>>> df = pd.DataFrame(data, columns=['PaÃ­s','Capital','PopulaÃ§Ã£o'])
 
 
 #Para ler arquivos CSV codificados em ISO
@@ -29,16 +32,16 @@ data = {
 #Removendo linhas pelo index
 s.drop([0, 1]) 
 #Removendo colunas utilizando o argumento axis=1
-df.drop('País', axis=1)
+df.drop('PaÃ­s', axis=1)
 
 
 #Quantidade de linhas e colunas do DataFrame
 >>> df.shape
-#Descrição do Index
+#DescriÃ§Ã£o do Index
 >>> df.index 
 #Colunas presentes no DataFrame
 >>> df.columns 
-#Contagem de dados não-nulos
+#Contagem de dados nÃ£o-nulos
 >>> df.count()
 @Criando uma nova coluna em um dataframe
 >>> df['Nova Coluna'] = 0
@@ -66,10 +69,10 @@ Resumo dos dados:
 #Index do maior valor
 >>> df.idmax()
 
-#Resumo estatístico do DataFrame, com quartis, mediana, etc.
+#Resumo estatÃ­stico do DataFrame, com quartis, mediana, etc.
 >>> df.describe()
 
-#Média dos valores
+#MÃ©dia dos valores
 >>> df.mean()
 
 
@@ -77,8 +80,8 @@ Resumo dos dados:
 >>> df.median()
 
 
-Aplicando funções:
-#Aplicando uma função que substitui a por b
+Aplicando funÃ§Ãµes:
+#Aplicando uma funÃ§Ã£o que substitui a por b
 df.apply(lambda x: x.replace('a', 'b'))
 
 
@@ -89,7 +92,7 @@ df.sort_values()
 df.sort_values(ascending=False)
 
 
-Operações aritméticas em Series: 
+OperaÃ§Ãµes aritmÃ©ticas em Series: 
 
 
 >>> s = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
@@ -103,14 +106,14 @@ Operações aritméticas em Series:
 >>> s.div(2)
 
 
-Indexação por Boolean:
+IndexaÃ§Ã£o por Boolean:
 
 #Filtrando o DataFrame para mostrar apenas valores pares
-df[df['População'] % 2 == 0]
+df[df['PopulaÃ§Ã£o'] % 2 == 0]
 
 Selecionando valores: 
-#Selecionando a primeira linha da coluna país
-df.loc[0, 'País']
+#Selecionando a primeira linha da coluna paÃ­s
+df.loc[0, 'PaÃ­s']
 
 
 moda:
@@ -132,7 +135,7 @@ print(train_df['Age'].var())
 print(example_series.var())
 
 
-Desvio Padrão:
+Desvio PadrÃ£o:
 print(train_df['Age'].std())
 
 print(example_series.std())
@@ -143,7 +146,7 @@ print(train_df['Age'].mad())
 
 print(example_series.mad())
 
-Covariância e Correlação
+CovariÃ¢ncia e CorrelaÃ§Ã£o
 print(train_df.cov())
 print(train_df.corr())
 
@@ -157,10 +160,10 @@ dataset[['bedrooms','bathrooms']].hist(bins=30,alpha=0.5,color='Green')
 
 BoxPlot
 %matplotlib notebook
-matplotlib.style.use('ggplot') #mudar o estilo do gráfico
+matplotlib.style.use('ggplot') #mudar o estilo do grÃ¡fico
 dataset.boxplot(column='bedrooms')
 
-#estilos disponíveis use o comando: matplotlib.style.available.
+#estilos disponÃ­veis use o comando: matplotlib.style.available.
 
 
 Para somente uma coluna:
@@ -170,26 +173,24 @@ dataset.boxplot(column='price', by='bedrooms')
 
 
 Tabelas Pivot
-As tabelas pivot são úteis para fazer agrupamentos nos dados. Dominando o Pandas
+As tabelas pivot sÃ£o Ãºteis para fazer agrupamentos nos dados. Dominando o Pandas
+Essa funcionalidade Ã© bastante eficiente e nos dar uma enorme vantagem em termos de tempo e desempenho computacional.
+Imagine fazer agrupamento de bases de dados muito grande na mÃ£o?
 
-Essa funcionalidade é bastante eficiente e nos dar uma enorme vantagem em termos de tempo e desempenho computacional.
+Por exemplo, se quisermos contar a quantidade de imÃ³veis agrupados pelos que tÃªm e nÃ£o tem visÃ£o para o mar e ainda pelo nÃºmero de andares?
 
-Imagine fazer agrupamento de bases de dados muito grande na mão?
-
-Por exemplo, se quisermos contar a quantidade de imóveis agrupados pelos que têm e não tem visão para o mar e ainda pelo número de andares?
-
-Veja como isso pode ser fácil:
+Veja como isso pode ser fÃ¡cil:
 
 dataset.pivot_table('id',index=["waterfront","floors"],aggfunc='count',margins=True)
 
 
-O método pivot_table() recebe o primeiro parâmetro “id” que a coluna será o resultado da contagem dos dados agrupados.
+O mÃ©todo pivot_table() recebe o primeiro parÃ¢metro â€œidâ€ que a coluna serÃ¡ o resultado da contagem dos dados agrupados.
 
-O parâmetro “index” são as colunas que quero agrupar.
+O parÃ¢metro â€œindexâ€ sÃ£o as colunas que quero agrupar.
 
-O parâmetro “aggfunc” uso para definir a função de agregação, no meu caso fiz a contagem dos dados, mas é possível fazer soma, calcular a média entre outras operações.
+O parÃ¢metro â€œaggfuncâ€ uso para definir a funÃ§Ã£o de agregaÃ§Ã£o, no meu caso fiz a contagem dos dados, mas Ã© possÃ­vel fazer soma, calcular a mÃ©dia entre outras operaÃ§Ãµes.
 
-E por fim, o último parâmetro “margins” definido como “true” para imprimir o total de registros na última linha.
+E por fim, o Ãºltimo parÃ¢metro â€œmarginsâ€ definido como â€œtrueâ€ para imprimir o total de registros na Ãºltima linha.
 
 
 
@@ -199,7 +200,7 @@ Crosstab:
 pd.crosstab(dataset['bedrooms'],dataset['condition'])
 
 
-Avaliando em forma gráfica:
+Avaliando em forma grÃ¡fica:
 table = pd.crosstab(dataset['bedrooms'],dataset['condition'])
 table.plot(kind='bar',width=1.0, color=['red','yellow','orange','blue','green'], title='Condition by Bedrooms' ,grid=False)
 
@@ -219,13 +220,13 @@ file = '/home/rodrigo/Downloads/Controle-de-Atividades-2.0.xlsx'
 dataframe_excel = pd.read_excel(file, sheetname=0, header=1, index_col=3)
 dataframe_excel.head()
 
-#O parâmetro index_col recebe o número da coluna que queremos indexar, nesse caso quero a coluna “Estado Atual” na posição 3 (as posições das colunas iniciam com 0).
-#Com o Dataframe indexado pela coluna “Estado Atual” vou ordená-lo:
+#O parÃ¢metro index_col recebe o nÃºmero da coluna que queremos indexar, nesse caso quero a coluna â€œEstado Atualâ€ na posiÃ§Ã£o 3 (as posiÃ§Ãµes das colunas iniciam com 0).
+#Com o Dataframe indexado pela coluna â€œEstado Atualâ€ vou ordenÃ¡-lo:
 
 dataframe_excel.sort_index()
 
 
-
+http://minerandodados.com.br/index.php/2017/11/10/dominando-o-pandas-datascience-dozero/#Tabelas_pivot
 Gerar excel: 
 gerar um arquivo a partir do Dataframe
 colunas=['id','price','bedrooms','bathrooms','sqft_living','floors','waterfront']
