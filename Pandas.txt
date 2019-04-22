@@ -183,6 +183,8 @@ Veja como isso pode ser fácil:
 
 dataset.pivot_table('id',index=["waterfront","floors"],aggfunc='count',margins=True)
 
+df.pivot_table('NUM_BO',index=["CIDADE"],aggfunc='count',margins=True)
+
 
 O método pivot_table() recebe o primeiro parâmetro “id” que a coluna será o resultado da contagem dos dados agrupados.
 
