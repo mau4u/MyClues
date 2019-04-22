@@ -6,7 +6,7 @@ df = pd.read_csv("https://storage.googleapis.com/ml_universities/california_hous
 
 df.head()
 df.describe()
-
+len(df)
 
 
 Now, split the data into two parts -- training and evaluation:
@@ -18,6 +18,8 @@ evaldf = df[~msk]
 
 #80% do dataframe será treinamento e 20% será avaliação. A escolha da entidade será via random.
 
+len(traindf)
+len(evaldf)
 
 we'll be trying to predict median_house_value
 We divide total_rooms by households to get avg_rooms_per_house which we expect to positively correlate with median_house_value
