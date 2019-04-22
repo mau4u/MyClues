@@ -1,5 +1,7 @@
 df = pd.read_csv("https://storage.googleapis.com/ml_universities/california_housing_train.csv", sep=",")
-
+pd.read_csv('nome_do_arquivo.csv', encoding='ISO-8859-1')
+xlsx = pd.ExcelFile('seu_arquivo_excel.xlsx')
+df = pd.read_excel(xlsx, 'Planilha 1')
 
 
 
@@ -9,7 +11,7 @@ df.describe()
 len(df)
 
 
-Now, split the data into two parts -- training and evaluation:
+#Now, split the data into two parts -- training and evaluation:
 
 np.random.seed(seed=1) #makes result reproducible
 msk = np.random.rand(len(df)) < 0.8
@@ -21,17 +23,21 @@ evaldf = df[~msk]
 len(traindf)
 len(evaldf)
 
-we'll be trying to predict median_house_value
-We divide total_rooms by households to get avg_rooms_per_house which we expect to positively correlate with median_house_value
-We also divide population by total_rooms to get avg_persons_per_room which we expect to negatively correlate with median_house_value
+#we'll be trying to predict median_house_value
+#We divide total_rooms by households to get avg_rooms_per_house which we expect to positively correlate with median_house_value
+#We also divide population by total_rooms to get avg_persons_per_room which we expect to negatively correlate with median_house_value
+
 def add_more_features(df):
   df['avg_rooms_per_house'] = df['total_rooms'] / df['households'] #expect positive correlation
   df['avg_persons_per_room'] = df['population'] / df['total_rooms'] #expect negative correlation
   return df
   
-  # Create pandas input function
+ # Create pandas input function
+ # entrando com o dataframe e a quantidade de épocas a serem treinadas
 def make_input_fn(df, num_epochs):
+ #utilizando a função pandas input
   return tf.estimator.inputs.pandas_input_fn(
+ # adicionando novas colunas:
     x = add_more_features(df),
     y = df['median_house_value'] / 100000, # will talk about why later in the course
     batch_size = 128,
