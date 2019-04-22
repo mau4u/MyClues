@@ -1,0 +1,14 @@
+
+Criar filtros no dataset:
+
+features['capped_rooms'] = tf.clip_by_value(
+	features['rooms'],
+	clip_value_min = 0,
+	clip_value_max = 4
+)
+
+ou
+#mudar um valor continuo para discreto, utilizar bucketized_column
+lat = tf.feature_column.numeric_column('latitude')
+dlat = tf.feature_column.bucketized_column(lat,
+boundaries = np.arange(32,42,1).tolist())
