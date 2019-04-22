@@ -1,0 +1,241 @@
+s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
+
+
+#Criando um dicionário onde cada chave será uma coluna do DataFrame 
+
+data = {
+'País': ['Bélgica', 'Índia', 'Brasil'],
+'Capital': ['Bruxelas', 'Nova Delhi', 'Brasília'],
+'População': [123465, 456789, 987654]
+}
+
+
+
+#Criando o DataFrame
+>>> df = pd.DataFrame(data, columns=['País','Capital','População'])
+
+
+#Para ler arquivos CSV codificados em ISO
+>>> pd.read_csv('nome_do_arquivo.csv', encoding='ISO-8859-1')
+
+#Para escrever arquivos CSV
+>>> pd.to_csv('nome_do_arquivo_para_salvar.csv')
+
+
+>>> xlsx = pd.ExcelFile('seu_arquivo_excel.xlsx')
+>>> df = pd.read_excel(xlsx, 'Planilha 1')
+
+
+#Removendo linhas pelo index
+s.drop([0, 1]) 
+#Removendo colunas utilizando o argumento axis=1
+df.drop('País', axis=1)
+
+
+#Quantidade de linhas e colunas do DataFrame
+>>> df.shape
+#Descrição do Index
+>>> df.index 
+#Colunas presentes no DataFrame
+>>> df.columns 
+#Contagem de dados não-nulos
+>>> df.count()
+@Criando uma nova coluna em um dataframe
+>>> df['Nova Coluna'] = 0
+
+
+Renomeando colunas de um DataFrame
+#Se seu DataFrame possui 3 colunas, passe 3 novos valores em uma lista
+df.columns = ['Coluna 1', 'Coluna 2', 'Coluna 3']
+
+Resumo dos dados:
+#Soma dos valores de um DataFrame
+>>> df.sum()
+
+
+#Menor valor de um DataFrame
+>>> df.min()
+
+
+#Maior valor
+>>> df.max()
+
+
+#Index do menor valor
+>>> df.idmin()
+#Index do maior valor
+>>> df.idmax()
+
+#Resumo estatístico do DataFrame, com quartis, mediana, etc.
+>>> df.describe()
+
+#Média dos valores
+>>> df.mean()
+
+
+#Mediana dos valores
+>>> df.median()
+
+
+Aplicando funções:
+#Aplicando uma função que substitui a por b
+df.apply(lambda x: x.replace('a', 'b'))
+
+
+Ordenando valores:
+#Ordenando em ordem crescente
+df.sort_values()
+#Ordenando em ordem decrescente
+df.sort_values(ascending=False)
+
+
+Operações aritméticas em Series: 
+
+
+>>> s = pd.Series([1, 2, 3, 4, 5], index=['a', 'b', 'c', 'd', 'e'])
+#Somando todos os valores presentes na Series por 2
+>>> s.add(2)
+#Subtraindo 2 de todos os valores
+>>> s.sub(2)
+#Multiplicando todos os valores por 2
+>>> s.mul(2)
+#Dividindo valores por 2
+>>> s.div(2)
+
+
+Indexação por Boolean:
+
+#Filtrando o DataFrame para mostrar apenas valores pares
+df[df['População'] % 2 == 0]
+
+Selecionando valores: 
+#Selecionando a primeira linha da coluna país
+df.loc[0, 'País']
+
+
+moda:
+print(train_df['Age'].mode())
+
+print(example_series.mode())
+
+
+
+Amplitude:
+print(train_df['Age'].max() - train_df['Age'].min())
+
+print(example_series.max() - example_series.min())
+
+
+Variancia:
+print(train_df['Age'].var())
+
+print(example_series.var())
+
+
+Desvio Padrão:
+print(train_df['Age'].std())
+
+print(example_series.std())
+
+
+Descio Absoluto:
+print(train_df['Age'].mad())
+
+print(example_series.mad())
+
+Covariância e Correlação
+print(train_df.cov())
+print(train_df.corr())
+
+
+Histograma:
+%matplotlib notebook
+dataset['price'].hist(bins=30)
+
+%matplotlib notebook
+dataset[['bedrooms','bathrooms']].hist(bins=30,alpha=0.5,color='Green')
+
+BoxPlot
+%matplotlib notebook
+matplotlib.style.use('ggplot') #mudar o estilo do gráfico
+dataset.boxplot(column='bedrooms')
+
+#estilos disponíveis use o comando: matplotlib.style.available.
+
+
+Para somente uma coluna:
+%matplotlib notebook
+dataset.boxplot(column='price', by='bedrooms')
+
+
+
+Tabelas Pivot
+As tabelas pivot são úteis para fazer agrupamentos nos dados. Dominando o Pandas
+
+Essa funcionalidade é bastante eficiente e nos dar uma enorme vantagem em termos de tempo e desempenho computacional.
+
+Imagine fazer agrupamento de bases de dados muito grande na mão?
+
+Por exemplo, se quisermos contar a quantidade de imóveis agrupados pelos que têm e não tem visão para o mar e ainda pelo número de andares?
+
+Veja como isso pode ser fácil:
+
+dataset.pivot_table('id',index=["waterfront","floors"],aggfunc='count',margins=True)
+
+
+O método pivot_table() recebe o primeiro parâmetro “id” que a coluna será o resultado da contagem dos dados agrupados.
+
+O parâmetro “index” são as colunas que quero agrupar.
+
+O parâmetro “aggfunc” uso para definir a função de agregação, no meu caso fiz a contagem dos dados, mas é possível fazer soma, calcular a média entre outras operações.
+
+E por fim, o último parâmetro “margins” definido como “true” para imprimir o total de registros na última linha.
+
+
+
+
+Crosstab:
+
+pd.crosstab(dataset['bedrooms'],dataset['condition'])
+
+
+Avaliando em forma gráfica:
+table = pd.crosstab(dataset['bedrooms'],dataset['condition'])
+table.plot(kind='bar',width=1.0, color=['red','yellow','orange','blue','green'], title='Condition by Bedrooms' ,grid=False)
+
+
+
+
+Excel:
+dataframe_excel = pd.read_excel('/home/rodrigo/Downloads/Controle-de-Atividades-2.0.xlsx', sheetname=0, header=1)
+
+
+dataframe_excel.head()
+
+
+Criando index
+
+file = '/home/rodrigo/Downloads/Controle-de-Atividades-2.0.xlsx'
+dataframe_excel = pd.read_excel(file, sheetname=0, header=1, index_col=3)
+dataframe_excel.head()
+
+#O parâmetro index_col recebe o número da coluna que queremos indexar, nesse caso quero a coluna “Estado Atual” na posição 3 (as posições das colunas iniciam com 0).
+#Com o Dataframe indexado pela coluna “Estado Atual” vou ordená-lo:
+
+dataframe_excel.sort_index()
+
+
+
+Gerar excel: 
+gerar um arquivo a partir do Dataframe
+colunas=['id','price','bedrooms','bathrooms','sqft_living','floors','waterfront']
+dataset[colunas].head()
+
+dataset[colunas].to_excel('planilha_pandas.xls',index=False)
+
+
+
+
+
+
+
