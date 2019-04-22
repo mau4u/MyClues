@@ -1,0 +1,12 @@
+SELECT
+	(tolls_amount + fare_amount)
+		AS	fare_amount,
+	DAYOFFWEEK(pickup_datatime)
+		AS dayoffweek,
+	HOUR(pickup_datatime)
+		AS hourofday,
+	...
+	FROM
+		'nyc-tlc.yellow.trips'
+	WHERE
+		trip_distance > 0
