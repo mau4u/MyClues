@@ -1,0 +1,10 @@
+import math
+import shutil
+import numpy as np
+import pandas as pd
+import tensorflow as tf
+
+print(tf.__version__)
+tf.logging.set_verbosity(tf.logging.INFO)
+pd.options.display.max_rows = 10
+pd.options.display.float_format = '{:.1f}'.format
