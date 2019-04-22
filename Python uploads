@@ -1,0 +1,1 @@
+df = pd.read_csv("https://storage.googleapis.com/ml_universities/california_housing_train.csv", sep=",")
