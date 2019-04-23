@@ -3,6 +3,46 @@ s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
 df.isnull().sum()
 
 
+df.sort_values(by='Português', ascending=False)
+
+# Tabela Pivot:
+df1= df.pivot_table('NUM_BO',index=["DESCR_PROFISSAO"],aggfunc='count',margins=True)
+df1.sort_values(by=['NUM_BO'])
+df1.sort_values(by=['NUM_BO'], ascending=False)
+df2=df.loc[(df["ANO_BO"]==2007)]
+df3 = df2.pivot_table('NUM_BO',index=["DESCR_PROFISSAO","ANO_BO"],aggfunc='count',margins=True)
+df3.sort_values(by=["NUM_BO"], ascending=False)
+
+#Selecionando:
+df.loc[1] # seleciona linha 1
+df.loc[:,'NUM_BO'] #a coluna toda
+df.loc[df['Matemática'] < 6]
+df[(df['Matemática'] < 6) & (df['Português'] < 6)]
+
+
+#transposição linha x coluna
+df.T
+
+#exclui coluna
+df.drop(columns=['Nome'])
+#exclui linha
+df.drop(1)
+
+#alterando
+df.loc[1,'Nome']= "Ana Maria"
+
+#rename de colunas
+df.columns = "Nome.", "Matemática.", "Português."
+
+#estatísticas:
+df.mean()Returns the mean of all columns
+df.corr()Returns the correlation between columns in a data frame
+df.count()Returns the number of non-null values in each data frame column
+df.max()Returns the highest value in each column
+df.min()Returns the lowest value in each column
+df.median()Returns the median of each column
+df.std()Returns the standard deviation of each column
+
 
 #Criando um dicionário onde cada chave será uma coluna do DataFrame 
 
