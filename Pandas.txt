@@ -44,6 +44,20 @@ df.median()Returns the median of each column
 df.std()Returns the standard deviation of each column
 
 
+#Localizar isnull
+df.isnull()
+dataset.isnull().sum()
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.isnull.html
+
+
+#Elimina toda linha que tiver um valor null
+df2.isnull().sum()
+dataset.dropna(how='all', inplace=True) #remove somente as linhas que estiverem com todas as colunas nulas
+
+#Preencher campos:
+dataset.fillna(0,inplace=True) # preenche todos os campos que estiverem nulos com o valor 0
+dataset.fillna(dataset['fixed acidity'].mean()) #preenche com valores médios
+
 #Criando um dicionário onde cada chave será uma coluna do DataFrame 
 
 data = {
