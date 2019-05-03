@@ -1,0 +1,75 @@
+Windowed Features in Cloud Dataprep
+
+Create a new Storage Bucket (em storage)
+Create BigQuery Dataset to store Cloud Dataprep Output
+	(entrar no big query, selecionar o nome do projeto e criar um dataset e definir o nome do dataset)
+Abrir o dataprep
+	criar um flow - o nome exemplo é: NYC Taxi Cab Data Reporting
+Import & Add Datasets
+	GCS (Google Cloud Storage)
+		no lápis, entrar com o caminho onde o dataset está
+		caso seja mais de um dataset idêntico, antes de importar, repetir o processo acima.
+	Import & Add to Flow
+Selecionar o primeiro dataset e clicar em Add New Recipe
+Editar Recipe
+Vemos os histogramas de cada feature. Baseado nessa informação podemos identificar comportamento e moda.
+Para unir os arquivos carregados, clicamos em UNION no menu de ferramentas, Add Data e selecionamos a próxima tabela a ser adicionada e finalmente em Add to Recipe
+Para concatenar duas features, basta usar o merge
+
+Merge columns
+
+Merge de hour_pickup_datetime e o texto entre aspas simples: '0000'
+
+
+
+Formulas usadas para tratamento:
+
+
+Functions > Aggregation > AVERAGE
+
+AVERAGE(fare_amount)
+ordenamento: pickup_datetime
+Agrupar por: pickup_hour
+
+Functions > Window > ROLLINGAVERAGE
+
+ROLLINGAVERAGE(average_fare_amount, 3, 0)
+ordenar ao inverso: -pickup_hour
+
+
+Através do  Recipe icon é possível ver todos os steps que foram executados (assim como no power BI)
+
+
+
+
+Criar um ambiente para os resultados:
+Publishing Actions page
+BigQuery and choose your taxi_cab_reporting BigQuery datase
+Create a new table
+Nominar a tabela de saida: exemplo: tlc_yellow_trips_reporting
+Selecionar: Drop the table every run e depois Update
+
+
+
+
+
+Query exemplo no bigquery para analisar os resultados enquando roda:
+
+#standardSQL
+SELECT
+  pickup_hour,
+  FORMAT("$%.2f",ROUND(average_3hr_rolling_fare,2)) AS avg_recent_fare,
+  ROUND(average_trip_distance,2) AS average_trip_distance_miles,
+  FORMAT("%'d",sum_passenger_count) AS total_passengers_by_hour
+FROM
+  `asl-ml-immersion.demo.nyc_taxi_reporting`
+ORDER BY
+  pickup_hour DESC;
+
+
+https://cloud.google.com/dataprep/
+
+
+
+
+
