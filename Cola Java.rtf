@@ -1,0 +1,675 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Verdana;\f2\fmodern\fcharset0 CourierNewPSMT;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red109\green109\blue109;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c50196\c50196\c50196;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh16000\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Java\
+##################\
+\
+package p2.exemplos;\
+\
+/*\
+ * O primeiro programa em Java: Hello World\
+ * Autor: Jacques Sauv\'e9\
+ */\
+\
+// Todo programa tem um ponto de entrada: o "m\'e9todo" main de alguma "classe"\
+public class Hello \{\
+  public static void main(String[] args) \{\
+    System.out.println("Hello, world!");\
+  \}\
+\}\
+\
+\
+\
+javac Hello.java\
+\
+java Hello\
+\
+\
+################\
+\
+\
+package p2.exemplos;\
+\
+import java.util.Scanner;\
+\
+/*\
+ * "Ler 3 n\'fameros inteiros da entrada, imprimir o menor e o maior"\
+ *\
+ * Autor: Jacques Sauv\'e9\
+ */\
+\
+public class MinMax1 \{\
+    public static void main(String[] args) \{\
+        Scanner sc = new Scanner(System.in);\
+        int n1, n2, n3;\
+\
+        System.out.print("Entre com o primeiro inteiro: ");\
+        n1 = sc.nextInt();\
+        System.out.print("Entre com o segundo inteiro: ");\
+        n2 = sc.nextInt();\
+        System.out.print("Entre com o terceiro inteiro: ");\
+        n3 = sc.nextInt();\
+        if (n1 > n2) \{\
+            if (n1 > n3) \{\
+                if (n2 < n3) \{\
+                    System.out.println("O menor numero eh: " + n2);\
+                \} else \{\
+                    System.out.println("O menor numero eh: " + n3);\
+                \}\
+                System.out.println("O maior numero eh: " + n1);\
+            \} else \{\
+                if (n1 < n2) \{\
+                    System.out.println("O menor numero eh: " + n1);\
+                \} else \{\
+                    System.out.println("O menor numero eh: " + n2);\
+                \}\
+                System.out.println("O maior numero eh: " + n3);\
+            \}\
+        \} else \{\
+            if (n2 > n3) \{\
+                if (n1 < n3) \{\
+                    System.out.println("O menor numero eh: " + n1);\
+                \} else \{\
+                    System.out.println("O menor numero eh: " + n3);\
+                \}\
+                System.out.println("O maior numero eh: " + n2);\
+            \} else \{\
+                if (n1 < n2) \{\
+                    System.out.println("O menor numero eh: " + n1);\
+                \} else \{\
+                    System.out.println("O menor numero eh: " + n2);\
+                \}\
+                System.out.println("O maior numero eh: " + n3);\
+            \}\
+        \}\
+    \}\
+\}\
+\
+##################################\
+\
+\
+package p2.exemplos;\
+\
+import java.util.Scanner;\
+\
+/*\
+ * "Ler 3 n\'fameros inteiros da entrada, imprimir o menor e o maior"\
+ *\
+ * Autor: Jacques Sauv\'e9\
+ */\
+\
+public class MinMax4 \{\
+    public static void main(String[] args) \{\
+        final int N\'daMEROS_A_LER = 3;\
+        Scanner sc = new Scanner(System.in);\
+        int m\'ednimo = Integer.MAX_VALUE;\
+        int m\'e1ximo = Integer.MIN_VALUE;\
+\
+        for (int i = 0; i < N\'daMEROS_A_LER; i++) \{\
+            System.out.print("Entre com o proximo inteiro: ");\
+            int num = sc.nextInt();\
+            if (num < m\'ednimo) \{\
+                m\'ednimo = num;\
+            \}\
+            if (num > m\'e1ximo) \{\
+                m\'e1ximo = num;\
+            \}\
+        \}\
+\
+        System.out.println("O menor numero eh: " + m\'ednimo);\
+        System.out.println("O maior numero eh: " + m\'e1ximo);\
+    \}\
+\}\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ##################################\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrt\brdrs\brdrw20\brdrcf3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\f1\b\fs28\fsmilli14400 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Tipo primitivo
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\b \cf2 Tamanho
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\b \cf2 M\'ednimo
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\b \cf2 M\'e1ximo
+\b0 \cell 
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\b \cf2 Exemplos de Constantes
+\b0 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 boolean
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 1 bit
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 true, false
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 char
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 16 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 Unicode 0
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 Unicode 65.535
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 'a' (letra a)
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 byte
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 8 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -128
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 +127
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 97, -23\
+0x65 (hexadecimal)\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+\cf2 short
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 16 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -2
+\fs24 \super 15\'a0
+\fs28\fsmilli14400 \nosupersub (-32.768)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 +2
+\fs24 \super 15
+\fs28\fsmilli14400 \nosupersub -1(32.767)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 17569, -21875
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 int
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 32 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -2
+\fs24 \super 31
+\fs28\fsmilli14400 \nosupersub \
+(uns -2 bi)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 +2
+\fs24 \super 31
+\fs28\fsmilli14400 \nosupersub -1\
+(uns 2 bi)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 1876345240, -2000000000
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 long
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 64 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -2
+\fs24 \super 63
+\fs28\fsmilli14400 \nosupersub \'a0\
+(uns -9 quintilh\'f5es)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 +2
+\fs24 \super 63
+\fs28\fsmilli14400 \nosupersub -1\
+(uns 9 quintilh\'f5es)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 123981723971982318273L,\
+-12381726387613678688L,\
+97L, -23L, 0L\
+(Observe o 'L' final)
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 float
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 32 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 aprox -10
+\fs24 \super 38
+\fs28\fsmilli14400 \nosupersub \'a0\
+(6-7 d\'edgitos significativos)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 aprox +10
+\fs24 \super 38
+\fs28\fsmilli14400 \nosupersub \'a0\
+(6-7 d\'edgitos significativos)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -3.4F\
+45.78E+23F\
+(Observe o 'F' final)
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 double
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 64 bits
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 aprox -10
+\fs24 \super 308
+\fs28\fsmilli14400 \nosupersub \'a0\
+(15 d\'edgitos significativos)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 aprox +10
+\fs24 \super 308
+\fs28\fsmilli14400 \nosupersub \'a0\
+(15 d\'edgitos significativos)
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -3.4\
+45.78E+23
+\f1 \cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trwWidth15640\trftsWidth3 \trbrdrl\brdrs\brdrw20\brdrcf3 \trbrdrb\brdrs\brdrw20\brdrcf3 \trbrdrr\brdrs\brdrw20\brdrcf3 
+\clvertalc \clshdrawnil \clwWidth2197\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx1728
+\clvertalc \clshdrawnil \clwWidth1755\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx3456
+\clvertalc \clshdrawnil \clwWidth2520\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5184
+\clvertalc \clshdrawnil \clwWidth2685\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx6912
+\clvertalc \clshdrawnil \clwWidth5842\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrs\brdrw20\brdrcf3 \clbrdrl\brdrs\brdrw20\brdrcf3 \clbrdrb\brdrs\brdrw20\brdrcf3 \clbrdrr\brdrs\brdrw20\brdrcf3 \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 void
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 -
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf2 indica aus\'eancia de tipo\
+(quando um "m\'e9todo" nada retorna
+\f1 \cell \lastrow\row
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+Tipo primitivo	Tamanho	M\'ednimo	M\'e1ximo	Exemplos de Constantes\
+boolean	1 bit	-	-	true, false\
+char	16 bits	Unicode 0	Unicode 65.535	'a' (letra a)\
+byte	8 bits	-128	+127	97, -23\
+0x65 (hexadecimal)\
+short	16 bits	-215 (-32.768)	+215-1(32.767)	17569, -21875\
+int	32 bits	-231\
+(uns -2 bi)	+231-1\
+(uns 2 bi)	1876345240, -2000000000\
+long	64 bits	-263 \
+(uns -9 quintilh\'f5es)	+263-1\
+(uns 9 quintilh\'f5es)	123981723971982318273L,\
+-12381726387613678688L,\
+97L, -23L, 0L\
+(Observe o 'L' final)\
+float	32 bits	aprox -1038 \
+(6-7 d\'edgitos significativos)	aprox +1038 \
+(6-7 d\'edgitos significativos)	-3.4F\
+45.78E+23F\
+(Observe o 'F' final)\
+double	64 bits	aprox -10308 \
+(15 d\'edgitos significativos)	aprox +10308 \
+(15 d\'edgitos significativos)	-3.4\
+45.78E+23\
+void	-	-	-	indica aus\'eancia de tipo\
+(quando um "m\'e9todo" nada retorna\
+\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ##################################\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+A convers\'e3o entre tipos (quando poss\'edvel) \'e9 feita com cast:\
+  double x = 8.89;\
+  int n = (int)x; // n ter\'e1 valor 8\
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ##################################\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 Operadores matem\'e1ticos\
++ (soma)\
+- (subtra\'e7\'e3o)\
+* (multiplica\'e7\'e3o)\
+/ (divis\'e3o)\
+% (m\'f3dulo)\
+H\'e1 operadores un\'e1rios - e +\
+Operadores bin\'e1rios podem ser seguido de =, tal como na seguinte express\'e3o:\
+\
+soma += nota*peso; // equivalente a soma = soma + nota*peso\
+n\'fameroDeAlunos++; // equivalente a n\'fameroDeAlunos = n\'fameroDeAlunos + 1\
+n\'fameroDeAlunos--; // equivalente a n\'fameroDeAlunos = n\'fameroDeAlunos - 1\
+if(n\'fameroDeAlunos-- > 0) // equivalente a testar n\'fameroDeAlunos e depois decrementar\
+if(--n\'fameroDeAlunos > 0) // equivalente a decrementar e depois testar n\'fameroDeAlunos\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ##################################\
+\
+Operadores relacionais\
+< (menor)\
+<= (menor ou igual)\
+> (maior)\
+>= (maior ou igual)\
+== (igual)\
+!= (n\'e3o igual)\
+Operadores l\'f3gicos\
+&& (AND)\
+|| (OR)\
+! (NOT)\
+Exemplos:\
+\
+if(n\'fameroDeAlunos > MAX_ALUNOS || n\'fameroDeProfessores > MAX_PROFS) ...\
+if(ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0) ... // ano bissexto\
+\
+##################################\
+\
+Operadores de bits e de deslocamento\
+&, &=, |, |=, ^, ^=, ~\
+N\'e3o falaremos deles aqui\
+Operador tern\'e1rio\
+Para escrever uma opera\'e7\'e3o condicional sem usar if-else\
+Exemplo segue\
+  // a linha seguinte\
+  m\'e9dia = n\'fameroDeNotas == 0 ? 0.0 : soma/n\'fameroDeNotas;\
+  // \'e9 equivalente \'e0s linhas seguintes\
+  if(n\'fameroDeNotas == 0) \{\
+    m\'e9dia = 0.0;\
+  \} else \{\
+    m\'e9dia = soma/n\'fameroDeNotas;\
+  \}\
+\
+##################################\
+\
+\
+package p2.exemplos;\
+\
+import java.util.Scanner;\
+\
+/*\
+ * Planejamento de aposentadoria\
+ *\
+ * Autor: Jacques Sauv\'e9 (roubado de CoreJava)\
+ */\
+\
+public class Aposentadoria \{\
+    public static void main(String[] args) \{\
+        Scanner sc = new Scanner(System.in);\
+        double alvo;\
+        double juros;\
+        double contribui\'e7\'e3o;\
+        int anos = 0;\
+        double saldo = 0;\
+\
+        // exercicio: verifique valores informados abaixo s\'e3o aceit\'e1veis\
+        System.out.print("Quanto dinheiro voce quer para se aposentar? ");\
+        alvo = sc.nextDouble();\
+        System.out.print("Quanto dinheiro voce vai contribuir todo ano?");\
+        contribui\'e7\'e3o = sc.nextDouble();\
+        System.out\
+                .print("Taxa de juros em % (exemplo: digite 7.5 para 7.5%): ");\
+        juros = sc.nextDouble() / 100;\
+\
+        while (saldo < alvo) \{\
+            saldo = (saldo + contribui\'e7\'e3o) * (1 + juros);\
+            anos++;\
+        \}\
+\
+        System.out.println("Voce pode se aposentar em " + anos + " anos.");\
+    \}\
+\}\
+\
+##################################\
+\
+package p2.exemplos;\
+\
+import java.util.Scanner;\
+\
+/*\
+ * Ler 10 n\'fameros inteiros da entrada, imprimir em ordem inversa\
+ *\
+ * Autor: Jacques Sauv\'e9\
+ */\
+\
+public class Inverte \{\
+    public static void main(String[] args) \{\
+        final int N\'daMEROS_A_LER = 10;\
+        Scanner sc = new Scanner(System.in);\
+        int[] n\'fameros = new int[N\'daMEROS_A_LER]; // cria\'e7\'e3o do array de 10\
+                                                // inteiros\
+\
+        for (int i = 0; i < n\'fameros.length; i++) \{\
+            System.out.print("Entre com o proximo inteiro: ");\
+            n\'fameros[i] = sc.nextInt();\
+        \}\
+        for (int i = n\'fameros.length - 1; i >= 0; i--) \{\
+            System.out.println(n\'fameros[i]);\
+        \}\
+    \}\
+\}\
+\
+##################################\
+\
+package p2.exemplos;\
+\
+/*\
+ * Ecoar argumentos de linha de comando\
+ *\
+ * Autor: Jacques Sauv\'e9\
+ */\
+\
+public class Eco \{\
+    public static void main(String[] args) \{\
+        for (int i = 0; i < args.length; i++) \{\
+            System.out.print(args[i] + " ");\
+        \}\
+        System.out.println();\
+        for (int i = 0; i < args.length; i++) \{\
+            System.out.println(args[i]);\
+        \}\
+    \}\
+\}\
+\
+\
+##################################\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\
+package p2.exemplos;\
+\
+/*\
+ * Imprime o dia da semana correspondendo ao argumento de linha de comando\
+ *\
+ * Autor: Jacques Sauv\'e9\
+ */\
+\
+public class Dia \{\
+    public static void main(String[] args) \{\
+        final int DIAS_NA_SEMANA = 7;\
+        final String[] diasDaSemana = \{ "", "Domingo", "Segunda", "Terca",\
+                "Quarta", "Quinta", "Sexta", "Sabado" \};\
+        if (args.length != 1) \{\
+            System.err.println("Sintaxe: Dia numero");\
+            System.exit(1);\
+        \}\
+        int dia = Integer.parseInt(args[0]);\
+        if (dia < 1 || dia > DIAS_NA_SEMANA) \{\
+            System.err.println("O dia da semana deve estar entre 1 e "\
+                    + DIAS_NA_SEMANA);\
+            System.exit(1);\
+        \}\
+        System.out.println(diasDaSemana[dia]);\
+    \}\
+\}\
+\
+Observa\'e7\'f5es\
+A inicializa\'e7\'e3o do array diaDaSemana j\'e1 calcula o tamanho necess\'e1rio\
+\'c9 recomendado usar System.err em vez de System.out para imprimir erros\
+System.exit(0) \'e9 usado para terminar o programa "bem"\
+System.exit(1) \'e9 usado para terminar o programa "mal"\
+Integer.parseInt(xpto) converte o string xpto a um inteiro\
+Teste: retire o teste da seguinte linha ...\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 ##################################\
+\
+\
+\
+\
+}
