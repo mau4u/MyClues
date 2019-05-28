@@ -1,3 +1,7 @@
+
+index => linha
+axis => coluna
+
 s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
 
 df.isnull().sum()
@@ -25,6 +29,11 @@ df.T
 
 #exclui coluna
 df.drop(columns=['Nome'])
+ou
+df.drop('coluna', inplace=True, axis=1)
+
+
+
 #exclui linha
 df.drop(1)
 
