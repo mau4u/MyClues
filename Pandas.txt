@@ -1,4 +1,9 @@
+#Avaliacao de uma feature:
 
+Seniors_Churn = df_churn[df_churn.Churn == 'Yes'].groupby('SeniorCitizen').count()['customerID']
+Seniors_NC = df_churn.groupby('SeniorCitizen').count()['customerID']
+
+#focusing
 index => linha
 axis => coluna
 
