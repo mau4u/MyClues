@@ -13,6 +13,10 @@ drinks = pd.read_csv('http://bit.ly/drinksbycountry' , index_col='country')
 
 
 
+drinks.set_index('country', inplace=True) #coloca indices nas linhas também
+drinks.head(3)
+#agora é possivel consulta da seguinte forma:
+drinks.loc['Brazil' , 'beer_servings']
 
 
 
