@@ -21,6 +21,7 @@ drinks.loc['Brazil' , 'beer_servings']
 
 
 
+
 #Avaliacao de uma feature:
 
 Seniors_Churn = df_churn[df_churn.Churn == 'Yes'].groupby('SeniorCitizen').count()['customerID']
