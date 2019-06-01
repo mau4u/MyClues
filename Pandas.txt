@@ -6,7 +6,13 @@ ufo.loc[ufo.City=="Oakland", :]
 ufo.loc[ ; , "Shape Reported"	: "Time"]
 
 ufo.loc[0 , 0:2] --> inclui a coluna 0 e a 2
-ufo.iloc[ 0 , 0:2] --> náo inclui a coluna 2
+ufo.iloc[ 0 , 0:2] --> náo inclui a coluna 2 -- o I é de inteiro, ou seja, não precisa escrever o label.
+
+
+drinks = pd.read_csv('http://bit.ly/drinksbycountry' , index_col='country')
+
+
+
 
 
 
