@@ -2,6 +2,7 @@ ufo = pd.read_csv("http://bit.ly/uforeports")
 ufo.head(3)
 ufo.loc[0, :]
 ufo[ufo.City=="Oakland"]
+ufo.loc[ufo.City=="Oakland", :]
 ufo.loc[ ; , "Shape Reported"	: "Time"]
 
 
