@@ -5,6 +5,9 @@ ufo[ufo.City=="Oakland"]
 ufo.loc[ufo.City=="Oakland", :]
 ufo.loc[ ; , "Shape Reported"	: "Time"]
 
+ufo.loc[0 , 0:2] --> inclui a coluna 0 e a 2
+ufo.iloc[ 0 , 0:2] --> náo inclui a coluna 2
+
 
 
 
