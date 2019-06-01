@@ -19,6 +19,8 @@ drinks.head(3)
 drinks.loc['Brazil' , 'beer_servings']
 
 
+drinks.continent.value_counts() #pivot da coluna continente
+
 
 
 
