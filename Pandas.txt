@@ -9,7 +9,7 @@ ufo.loc[0 , 0:2] --> inclui a coluna 0 e a 2
 ufo.iloc[ 0 , 0:2] --> náo inclui a coluna 2 -- o I é de inteiro, ou seja, não precisa escrever o label.
 
 
-drinks = pd.read_csv('http://bit.ly/drinksbycountry' , index_col='country')
+drinks = pd.read_('http://bit.ly/drinksbycountry' , index_col='country')
 
 
 
@@ -116,7 +116,7 @@ data = {
 >>> pd.read_csv('nome_do_arquivo.csv', encoding='ISO-8859-1')
 
 #Para escrever arquivos CSV
->>> pd.to_csv('nome_do_arquivo_para_salvar.csv')
+>>> df.to_csv('nome_do_arquivo_para_salvar.csv')
 
 
 >>> xlsx = pd.ExcelFile('seu_arquivo_excel.xlsx')
