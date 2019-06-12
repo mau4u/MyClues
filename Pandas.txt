@@ -1,3 +1,9 @@
+Concatenar:
+In [4]: frames = [df1, df2, df3]
+In [5]: result = pd.concat(frames)
+
+
+
 ufo = pd.read_csv("http://bit.ly/uforeports")
 ufo.head(3)
 ufo.loc[0, :]
