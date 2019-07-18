@@ -1,0 +1,115 @@
+
+Criar predição de campos
+(https://trailhead.salesforce.com/pt-BR/content/learn/projects/prediction_builder/prediction_builder_prediction)
+
+
+You’ve always managed to keep Pizzaiolo Marco ahead of the curve. When business started taking off and expanding, you began using Salesforce to manage online reservations. You recently learned that the Salesforce AI platform, Einstein, has a key new feature for solving your reservation no-show problem.
+Einstein Prediction Builder lets you make predictions about almost any field in Salesforce with just a few clicks. Then you can use the predictions to power a workflow, focus your efforts, and work smarter. No models. No algorithms. And, best of all, no code. Point. Click. Predict.
+Einstein Prediction Builder helps to predict the likelihood that customers show up for a reservation, so you can prioritize which customers to call for confirmation. Then you can schedule restaurant staff appropriately, fill more seats, and make more diners happy.
+But can you really do that with Einstein Prediction Builder?
+Let’s find out.
+
+Sign Up for a Trailhead Playground with Einstein Prediction Builder
+To make predictions about Pizzaiolo Marco customers, you need a special Trailhead Playground account that contains Einstein Prediction Builder and Pizzaiolo Marco customer data.
+Sign up for a Trailhead Playground with Einstein Prediction Builder.
+Fill out the form completely. In the Email field, enter an active email address. In the Username field, enter a unique email address, but it doesn’t have to be a valid email account. For example, your username can be yourname@pizzaiolomarco.com.
+After you fill out the form, click Sign me up. A confirmation message appears.
+When you receive the activation email, open it and click Verify Account.
+Complete the registration form—set your password and enter a security answer.
+Click Change Password. You are logged in to your special Trailhead Playground and redirected to the Setup page.
+Now connect your new Trailhead Playground to Trailhead so you can pass the challenges in this project. In the Trailhead Playground picklist, select Log into a Developer Edition.
+
+Create a Formula Field to Predict
+You’ve got your special Trailhead Playground. Now let’s look at it more closely. In Object Manager, you can see that it has:
+Reservation, a custom object. Each Reservation record represents a customer’s reservation at one of Pizzaiolo Marco’s restaurants.
+Status, a picklist field on the Reservation object with options that include:
+Completed
+No Show
+Upcoming
+You want to predict the likelihood that customers will be a no-show. In a nutshell, you want to know which reservations are likely to eventually have: Status = “No Show.” Einstein Prediction Builder can answer your questions in a yes/no format: “Is this customer’s reservation likely to result in a No Show? Yes or no?” That means you need to provide your historical data in the same yes/no format. In Salesforce, that’s a checkbox field. So let’s create a custom formula checkbox field for No Show.
+
+
+From Setup, click Object Manager.
+Search for and click Reservation.
+Click Fields & Relationships.
+Click New.
+Select the Formula data type, then click Next.
+For the Field Label, enter No Show and select Checkbox for the return type. Then click Next
+Enter this formula in the No Show (Checkbox) field on the Simple Formula tab, and click Next.
+ISPICKVAL(Status__c,"No Show")
+This formula will return a True value if the reservation resulted in a no-show, and a False value otherwise. That’s just what we’re looking for in our prediction.
+Leave the default options for field-level security and the following page, clicking Next, then Save.
+
+
+
+Enrich Your Prediction
+Your online reservation app is already collecting some customer data that might be useful for predicting no-shows. For example:
+Where they live
+Marital status
+Occupation
+Date and time of reservation
+Whether they’re a Rewards Member
+Total number of reservations they’ve booked
+Then something your Uncle Vito likes to say pops in your head (probably because he’s sitting across from you, eating a calzone): “The best predictor of the future is the past.” People who have been no-shows in the past might repeat that behavior in the future. You want to enrich your prediction with this previous no-show data.
+
+Since you are building a prediction on the Reservation object, you need to add the previous no-show data onto that object for Einstein Prediction Builder to consider it. Fortunately, this is pretty simple.
+
+First you create a custom Roll-Up Summary field called “Previous No Shows” on the Contact object.
+
+From Setup, click Object Manager.
+Search for and click Contact.
+Click Fields & Relationships.
+Click New.
+Select the Roll-Up Summary data type, then click Next.
+
+
+For the Field Label, enter Previous No Shows and click Next.
+For Summarized Object, select Reservations.
+Select COUNT.
+Select Only records meeting certain criteria should be included in the calculation.
+In Filter Criteria, for Field, select No Show. For Operator, select Equals. For Value, enter True. Click Next.
+
+
+Click Next to accept the default settings for field-level security, then click Save.
+Add Previous No Shows to Your Prediction
+Next, you create a custom Previous No Shows field on the Reservation object so that Einstein Prediction Builder can see this information when making its prediction about Reservations.
+
+From Setup, click Object Manager.
+Search for and click Reservation.
+Click Fields & Relationships.
+Click New.
+Select the Formula data type, then click Next.
+For Field Label, enter Previous No Shows. Select Number for the return type, and select 0 for decimal places. Click Next.
+Click the Advanced Formula tab and click Insert Field.
+With the Reservation object selected, click Contact >.
+Select Previous No Shows and click Insert.
+Then click Next, Next, and Save
+
+You’ve added previous no-shows to your prediction.
+
+
+Build a Prediction
+Things are going well. You created the custom formula field that you want to predict. You created fields to enrich your prediction. Now it’s time to tell Einstein to build your prediction.
+From Setup, enter Einstein Prediction Builder in the Quick Find box and select Einstein Prediction Builder. Or, click Get Started on the Einstein Prediction Builder tile.
+If this is the first time you’re using Einstein Prediction Builder in this special new org, you’ll also need to click Get Started on the splash page.
+Click New Prediction.
+Name your prediction No Show Prediction. The API Name field auto-populates based on your label. Click Next.
+Search for and select the Reservation object. Leave the default option to not focus on a segment. To make sure you have enough records in your dataset for Einstein to make a prediction, click Check Data in the Data Checker. Record count looks good? Click Next.
+Search for and select the No Show formula field that you created earlier. This is the field that you want to predict.
+Einstein needs to know which records to use as examples. You want to use past reservations, so it’s known whether they were no-shows or not. Select the Status field, the Does not equal operator, and the Upcoming value. Click Check Data to make sure your example set has enough records and the field you’re predicting has enough true and false values. (Data Checker shows “0 Records to predict” but don’t worry! That’s just because you’re working in a simulated environment. After you build your prediction and verify this step, lots of records will have predicted values.) Looks good? Click Next.
+Review the fields for Einstein to analyze to make a prediction. In this case, leave all the fields selected. Click Next.
+Now name the field where Einstein saves your prediction. Enter Predicted No Show for the Field Label. Press Tab to populate the field name and click Next.
+Review your selections. To make a change, use the Back button. Click Check Data one final time to make sure Einstein can build a prediction based on the way you’ve set everything up. Once you’re satisfied with your selections, click Build Prediction. On the next page, click Done.
+It takes a few hours for Einstein to analyze your data and start making predictions. It seems a lot faster in this project, though, because we’re doing some magic behind the scenes so you can proceed. Click Verify Step to proceed to the next step in the project.
+
+
+
+
+
+
+
+
+
+
+
+
