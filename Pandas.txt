@@ -70,6 +70,14 @@ ou
 df.drop('coluna', inplace=True, axis=1)
 
 
+#Removendo linhas pelo index
+s.drop([0, 1]) 
+
+axis=0 # quer dizer linha, mas axis =0 é default
+
+#Removendo colunas utilizando o argumento axis=1
+df.drop('País', axis=1)
+
 
 #exclui linha
 df.drop(1)
