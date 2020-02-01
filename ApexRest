@@ -117,7 +117,7 @@ RestContext.request = request;
 #####################
 
 CALL-OUT
-
+1 é necessário adicionar o endpoint em Configurações do site remoto
 
 GET FICA ASSIM:
 
