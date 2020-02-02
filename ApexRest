@@ -28,6 +28,19 @@ global with sharing class MySOAPWebService {
 
 #############
 
+@RestResource(urlMapping='/Account/*/contacts')
+global with sharing class AccountManager {
+    @HttpGet
+    global static Account getAccount() {
+		RestRequest request = RestContext.request;
+        String Account_Id = request.requestURI.substringBetween('Account/','/contacts');   
+        Account result = [SELECT Id,Name,(SELECT Id,Name FROM Contacts) FROM Account WHERE Id = :Account_Id LIMIT 1];
+        return result;  
+    } 
+}
+
+##############
+
 @RestResource(urlMapping='/Cases/*')
 global with sharing class CaseManager {
     @HttpGet
