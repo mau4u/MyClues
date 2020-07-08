@@ -1,3 +1,15 @@
+Pegar uma feature tipo Bernoulli, separar em duas colunas e concatenar ao dataset inicial
+
+target=df.Status
+inputs=df.drop("Status", axis="columns")
+dummies=pd.get_dummies(inputs, Sex)
+input =pd.concat([inputs, dummies],axis='columns')
+input.head(3)
+input.drop("Sex", axis="columns", inplace=True)
+input.head(3)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 Concatenar:
 In [4]: frames = [df1, df2, df3]
 In [5]: result = pd.concat(frames)
