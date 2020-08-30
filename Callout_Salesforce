@@ -1,0 +1,129 @@
+APEX Callout
+
+1- habilitar webservices a acessar via callout na lista de sites aprovados pela sua org na página Configurações de sites remotos.
+
+Em Configuração, insira Configurações de sites remotos na caixa Busca rápida e clique em Configurações de sites remotos.
+Clique em Novo site remoto.
+Para o nome do site remoto, insira animais_http.
+Para a URL do site remoto, insira https://th-apex-http-callout.herokuapp.com. A especificação dessa URL gera uma autorização para todas as subpastas daquele ponto de extremidade, como https://th-apex-http-callout.herokuapp.com/path1 e https://th-apex-http-callout.herokuapp.com/path2.
+Na descrição, escreva Serviço de animais do Trailhead: HTTP.
+Clique em Salvar e novo.
+Para o nome do segundo site remoto, insira animais_soap.
+Para a URL do site remoto, insira https://th-apex-soap-service.herokuapp.com.
+  Na descrição, escreva Serviço de animais do Trailhead: SOAP.
+Clique em Salvar.
+
+2-Abra o Developer Console na engrenagem de configurações (Ícone de engrenagem de configurações).
+No Developer Console, selecione Debug (Depurar) | Open Execute Anonymous Window (Abrir janela Executar no modo anônimo).
+Exclua o código existente e insira o seguinte trecho
+
+Http http = new Http();
+HttpRequest request = new HttpRequest();
+request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
+request.setMethod('GET');
+HttpResponse response = http.send(request);
+// If the request is successful, parse the JSON response.
+if (response.getStatusCode() == 200) {
+    // Deserialize the JSON string into collections of primitive data types.
+    Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+    // Cast the values in the 'animals' key as a list
+    List<Object> animals = (List<Object>) results.get('animals');
+    System.debug('Received the following animals:');
+    for (Object animal: animals) {
+        System.debug(animal);
+    }
+}
+
+Selecione Abrir registro e clique em Executar.
+Após a abertura do registro de depuração, selecione Apenas a depuração para visualizar o resultado dos demonstrativos System.debug.
+Os nomes dos animais serão exibidos.
+
+O JSON do nosso exemplo é bem simples e fácil de analisar. Para estruturas JSON mais complexas, use JSON2Apex. 
+Essa ferramenta gera códigos Apex altamente tipificados para a análise de uma estrutura JSON. 
+Basta colar o JSON no local e a ferramenta gera o código Apex do qual você precisa. Uma maravilha!
+
+
+3- POST:
+
+Http http = new Http();
+HttpRequest request = new HttpRequest();
+request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
+request.setMethod('POST');
+request.setHeader('Content-Type', 'application/json;charset=UTF-8');
+// Set the body as a JSON object
+request.setBody('{"name":"mighty moose"}');
+HttpResponse response = http.send(request);
+// Parse the JSON response
+if (response.getStatusCode() != 201) {
+    System.debug('The status code returned was not expected: ' +
+        response.getStatusCode() + ' ' + response.getStatus());
+} else {
+    System.debug(response.getBody());
+}
+
+AMBIENTE DE DESENVOLVIMENTO:
+
+FILE: NEW: CLASS
+
+public class AnimalsCallouts {
+
+    public static HttpResponse maketGetCallout() {
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+		request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
+		request.setMethod('GET');
+        HttpResponse response = http.send(request);
+        // se a resposta for um sucesso, parse a resposta
+        if (response.getStatusCode()==200) {
+            //desserialização da string json em coleções de dados primitivos
+            Map<String,Object> results = (Map<String,Object>) JSON.deserializeUntyped(response.getBody());
+            // cast de valores em uma lista
+            List<Object> animals = (List<Object>) results.get('animals');
+            System.debug('Receive the following animals:');
+            for (Object animal:animals) {
+                System.debug(animal);
+            }
+        }        
+        return response;
+     }
+    
+    public static HttpResponse makePostCallout() {
+        Http http = new Http();
+        HttpRequest request = new HttpRequest();
+        request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
+        request.setMethod('POST');
+        request.setHeader('Content-type','application/json;charset=UTF-8');
+        request.setBody('{"name":"mighty moose"}');
+        HttpResponse response = http.send(request);
+        //parse do json
+        if (response.getStatusCode() != 201) {
+            System.debug('The status code returned was not expected: '+response.getStatusCode()+' '+response.getStatus());
+            
+        } else {
+            System.debug(response.getBody());
+        }
+        return response;
+        
+    }
+  
+}
+
+CRIANDO UM StaticResourceCalloutMock
+
+Para testar seus callouts, use callouts simulados implementando uma interface ou usando recursos estáticos. No exemplo em questão, 
+usamos recursos estáticos e posteriormente uma interface de simulação. O recurso estático contém o corpo de resposta que será devolvido. 
+E lembre-se: se usar um callout simulado, a solicitação não será enviada para o ponto de extremidade. Em vez disso, o tempo de execução do Apex sabe 
+como procurar a resposta especificada no recurso estático e apresentar exatamente essa informação. O método Test.setMock informa ao tempo de execução que 
+callouts simulados estão sendo usados no método de teste. Vejamos os callouts simulados na prática. 
+Em primeiro lugar, criaremos um recurso estático com uma sequência de caracteres em formato JSON que será usada para a solicitação GET.
+
+No Developer Console, selecione File (Arquivo) | New (Novo) | Static Resource (Recurso estático).
+Para o nome, insira GetAnimalResource.
+Para o tipo MIME, selecione texto/simples (apesar de estarmos usando JSON).
+Clique em Enviar.
+Na guia que abre para o recurso, insira o conteúdo a seguir. Confira se está tudo na mesma linha, sem gerar uma quebra para a próxima. Esse é o conteúdo devolvido pelo callout simulado. Um conjunto de três criaturas da floresta.
+{"animals": ["pesky porcupine", "hungry hippo", "squeaky squirrel"]}
+Pressione Ctrl+S para salvar.
+
+
+@@@@@ está faltando terminar.
