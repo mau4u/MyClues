@@ -126,4 +126,66 @@ Na guia que abre para o recurso, insira o conteúdo a seguir. Confira se está t
 Pressione Ctrl+S para salvar.
 
 
-@@@@@ está faltando terminar.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+CALLOUT PARA CEP
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+NOTA: O TIPO DE RESULTADO TEM UM ÚNICO ENCAPSULAMENTO:
+{
+  "cep": "06230-150",
+  "logradouro": "Avenida Edmundo Amaral",
+  "complemento": "",
+  "bairro": "Piratininga",
+  "localidade": "Osasco",
+  "uf": "SP",
+  "ibge": "3534401",
+  "gia": "4923",
+  "ddd": "11",
+  "siafi": "6789"
+}
+
+
+
+Http http = new Http();
+HttpRequest request = new HttpRequest();
+String desejo = '06402010';
+request.setEndpoint('https://viacep.com.br/ws/'+desejo+'/json/');
+request.setMethod('GET');
+HttpResponse response = http.send(request);
+
+// If the request is successful, parse the JSON response.
+if (response.getStatusCode() == 200) {
+    // Deserialize the JSON string into collections of primitive data types.
+    Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+    // em virtude de haver um único encapsulamento, não ha necessidade de criar outro MAP. Portanto, para pincar o valor desejado basta usar strings
+    String logradouronome = string.valueOf( results.get('logradouro') );
+    // logar no debug
+    system.debug(logradouronome);
+    
+@@@@@@@@@@@@@@
+SITUAÇÃO PARA RESPOSTAS ENCAPSULADAS
+@@@@@@@@@@@@@
+NOTE O TIPO DE ENCAPSULAMENTO:
+{"animal":{"id":1,"name":"chicken","eats":"chicken food","says":"cluck cluck"}}
+@@@@@@@@@@@@@
+Http http = new Http();
+HttpRequest request = new HttpRequest();
+request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals/1');
+request.setMethod('GET');
+HttpResponse response = http.send(request);
+
+// If the request is successful, parse the JSON response.
+if (response.getStatusCode() == 200) {
+    // Deserialize the JSON string into collections of primitive data types.
+    Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+    
+    // Cast the values - todos metadados animal, pois não há como pincar diretamente em virtude do encapsulamento.
+    Map<String, Object> animal = (Map<String, Object>) results.get('animal');
+    
+    // pick value somente do metadado que desejo
+    String animalFood = string.valueOf( animal.get('eats') );
+    String animalName = string.valueOf( animal.get('name') );
+    
+    system.debug(animalName);
+    system.debug(animalFood);
+}
+
