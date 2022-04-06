@@ -1,0 +1,8 @@
+Account-->Name
+ 
+Contact-->LastName
+ 
+Lead-->Company,LastName,status
+ 
+Opportunity-->Name,stage,closedate
+
