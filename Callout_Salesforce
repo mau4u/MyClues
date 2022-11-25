@@ -17,6 +17,21 @@ Clique em Salvar.
 No Developer Console, selecione Debug (Depurar) | Open Execute Anonymous Window (Abrir janela Executar no modo anônimo).
 Exclua o código existente e insira o seguinte trecho
 
+String cep = '18060020';
+Http http = new Http();
+HttpRequest request = new HttpRequest();
+request.setEndpoint('https://viacep.com.br/ws/'+cep+'/json/');
+request.setMethod('GET');
+HttpResponse response = http.send(request);
+
+if (response.getStatusCode() == 200) {
+    Map<String, Object> results = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+    for (Object address : results.values()){
+        System.debug('the component address is ' + address);
+    }   
+}
+
+
 Http http = new Http();
 HttpRequest request = new HttpRequest();
 request.setEndpoint('https://th-apex-http-callout.herokuapp.com/animals');
