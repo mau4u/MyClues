@@ -1,0 +1,27 @@
+
+.mastercontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    background: green; /* Não necessário */
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px; 
+    width: 50%; 
+    background: #dfdfdf; 
+ }
+
+.item{
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    /*border: 3px solid green; */
+}
